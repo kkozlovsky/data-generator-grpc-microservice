@@ -4,6 +4,6 @@ COPY pom.xml /
 RUN mvn -f /pom.xml clean package
 
 FROM eclipse-temurin:21-jdk-alpine
-COPY --from=build /target*.jar application.jar
-EXPOSE 8080
+COPY --from=build /target/*.jar application.jar
+EXPOSE 8081
 ENTRYPOINT ["java", "-jar", "application.jar"]
